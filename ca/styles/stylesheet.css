@@ -1,0 +1,301 @@
+/********** CORE **********/
+
+:root {
+    --black: #30363b;
+    --dark-green: #283618;
+    --olive: #606c38;
+    --off-white-dark: #dedac0;
+    --off-white: #fefae0;
+    --light-orange: #dda15e;
+    --darker-orange: #bc6c25;
+    --general-padding: 1em;
+    font-size: 16px;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--off-white);
+    color: var(--black);
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--darker-orange);
+}
+
+h2 {
+    text-decoration: underline 2px;
+}
+
+h4 {
+    display: inline;
+}
+
+ol, ul {
+    list-style-type: none;
+}
+
+section, article {
+    margin-bottom: 2rem;
+}
+
+figure {
+    margin: 0;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+}
+
+#logo {
+    width: 8em;
+    margin-right: 0.5rem;
+}
+
+/* Places caption in top right corner */
+figcaption {
+    background-color: var(--off-white-dark);
+    color: black;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    max-width: 85%;
+    max-height: 35%;
+    font-size: 0.75rem;
+}
+
+/*** FAQ TABLE ***/
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+tr:nth-child(even) {
+    background-color: var(--off-white-dark);
+}
+
+td {
+    padding: 1.5em;
+}
+
+th {
+    padding: var(--general-padding);
+    font-size: 1.25em;
+}
+
+/* Write id for #statuses */
+
+#statuses > li {
+    padding: 0.3em;
+}
+
+#endangered {
+    color: var(--off-white);
+    background-color: var(--dark-green);
+    border-radius: 0.2em;
+}
+
+/****** HEADER ******/
+
+header {
+    background-color: var(--dark-green);
+    color: var(--off-white);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/****** NAV ******/
+
+nav {
+    background-color: var(--dark-green);
+    padding: var(--general-padding);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav ul {
+    margin-right: 1.5rem;
+}
+
+nav li {
+    padding: var(--general-padding);
+    border-radius: 0.2em;
+}
+
+nav a, nav a:visited {
+    color: var(--off-white);
+}
+
+#current_page {
+    color: var(--light-orange);
+}
+
+
+/****** ASIDE ******/
+aside {
+    background-color: var(--off-white-dark);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+aside h3 {
+    text-align: center;
+}
+
+aside ul, aside ol {
+    margin: 0;
+    padding: 0;
+}
+
+aside li {
+    margin: 1rem;
+}
+
+/****** MAIN ******/
+main figure {
+    display: inline-block;
+}
+
+/****** FOOTER ******/
+footer {
+    background-color: var(--dark-green);
+    color: var(--off-white);
+    padding: var(--general-padding);
+}
+
+
+/*********** MEDIA QUERIES **********/
+@viewport {
+    width: device-width;
+}
+
+@media (hover: hover) {
+
+    nav li:hover {
+        background-color: var(--olive);
+    }    
+    
+    aside a:hover {
+        color: var(--light-orange);
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 320px) {
+
+    nav {
+        flex-wrap: nowrap;
+        text-align: center;
+    }
+
+    nav li {
+        display: block;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    nav a {
+        display: block;
+    }
+
+    main {
+        text-align: center;
+    }
+
+    main figure {
+        width: 75%;
+    }
+
+    main iframe {
+        width: 80%;
+    }
+
+    table, th, td {
+        border: 1px solid var(--black);
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    /****** GRID LAYOUT ******/
+    body {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: "top top"
+            "top-middle top-middle"
+            "middle-left middle-right"
+            "bottom bottom"
+    }
+
+    main {
+        text-align: left;
+    }
+
+    header {
+        grid-area: top;
+    }
+
+    nav {
+        grid-area: top-middle;
+    }
+
+    aside {
+        grid-area: middle-left;
+    }
+
+    main {
+        grid-area: middle-right;
+    }
+
+    footer {
+        grid-area: bottom;
+    }
+
+    /****** FLEXBOX ******/
+    nav {
+        flex-wrap: wrap;
+    }
+
+    /****** GENERAL ******/
+    main figure {
+        width: 40%;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    nav a {
+        display: inline;
+    }
+
+    aside {
+        margin-right: 1em;
+    }
+
+    table, th, td {
+        border: 2px solid var(--black);
+    }
+
+    table {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
